@@ -28,7 +28,8 @@ action :config do
     return
   end
 
-  prefix = node['cpe_profiles']['prefix']
+  cookbook = node['cpe_munki']['profiles_cookbook']
+  prefix = node[cookbook]['prefix']
   organization = node['organization'] ? node['organization'] : 'Facebook'
 
   munki_profile = {
@@ -52,5 +53,5 @@ action :config do
   munki_prefs.each do |k, v|
     munki_profile['PayloadContent'][0][k] = v
   end
-  node.default['cpe_profiles']["#{prefix}.munki"] = munki_profile
+  node.default[cookbook]["#{prefix}.munki"] = munki_profile
 end

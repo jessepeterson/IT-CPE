@@ -21,6 +21,7 @@ default['cpe_munki'] = {
   'auto_remediate' => nil,
   'skip_enforcing_launchds' => [],
   'munki_version_to_install' => {},
+  'profiles_cookbook' => 'cpe_profiles',
   'local' => {
     'managed_installs' => [],
     'managed_uninstalls' => [],
